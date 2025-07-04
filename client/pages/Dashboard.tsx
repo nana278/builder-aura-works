@@ -222,7 +222,18 @@ export default function Dashboard() {
                 </div>
 
                 <div className="space-y-3">
-                  <Button className="w-full h-14 text-lg rounded-2xl bg-app-red hover:bg-red-600 text-white">
+                  <Button
+                    onClick={() => {
+                      const todayString = today.toISOString().split("T")[0];
+                      setRecordedDates((prev) =>
+                        prev.includes(todayString)
+                          ? prev
+                          : [...prev, todayString],
+                      );
+                      setShowModal(false);
+                    }}
+                    className="w-full h-14 text-lg rounded-2xl bg-app-red hover:bg-red-600 text-white"
+                  >
                     生理開始
                   </Button>
                   <Button
@@ -234,7 +245,19 @@ export default function Dashboard() {
                   >
                     症状���記録
                   </Button>
-                  <Button className="w-full h-14 text-lg rounded-2xl bg-gradient-to-r from-app-blue to-cyan-400 hover:from-app-blue-dark hover:to-cyan-500 text-white">
+                  <Button
+                    onClick={() => {
+                      const todayString = today.toISOString().split("T")[0];
+                      setRecordedDates((prev) =>
+                        prev.includes(todayString)
+                          ? prev
+                          : [...prev, todayString],
+                      );
+                      setShowModal(false);
+                      navigate("/mood");
+                    }}
+                    className="w-full h-14 text-lg rounded-2xl bg-gradient-to-r from-app-blue to-cyan-400 hover:from-app-blue-dark hover:to-cyan-500 text-white"
+                  >
                     体調を記録
                   </Button>
                 </div>

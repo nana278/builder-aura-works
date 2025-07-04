@@ -108,14 +108,26 @@ export default function Dashboard() {
           <h2 className="text-xl font-bold text-gray-800 mb-4">クイック記録</h2>
           <div className="grid grid-cols-2 gap-3">
             <Button
-              onClick={() => navigate("/symptoms")}
+              onClick={() => {
+                const todayString = today.toISOString().split("T")[0];
+                setRecordedDates((prev) =>
+                  prev.includes(todayString) ? prev : [...prev, todayString],
+                );
+                navigate("/symptoms");
+              }}
               className="h-20 flex flex-col items-center justify-center bg-gradient-to-r from-app-pink to-pink-400 hover:from-pink-600 hover:to-pink-500 text-white rounded-2xl"
             >
               <span className="text-2xl mb-1">🩺</span>
               <span className="text-sm font-medium">症状を記録</span>
             </Button>
             <Button
-              onClick={() => navigate("/mood")}
+              onClick={() => {
+                const todayString = today.toISOString().split("T")[0];
+                setRecordedDates((prev) =>
+                  prev.includes(todayString) ? prev : [...prev, todayString],
+                );
+                navigate("/mood");
+              }}
               className="h-20 flex flex-col items-center justify-center bg-gradient-to-r from-app-blue to-cyan-400 hover:from-app-blue-dark hover:to-cyan-500 text-white rounded-2xl"
             >
               <span className="text-2xl mb-1">😊</span>

@@ -84,7 +84,7 @@ export default function Chat() {
       mother:
         "お疲れさま、大丈夫よ。何でもお母さんに話してみて。一緒に考えましょうね。",
       grandmother:
-        "あらあら、どうしたの？おばあちゃんがいるから安心しなさい。何でも聞いてあげるからね。",
+        "あらあら、どうしたの？おばあちゃんがい��から安心しなさい。何でも聞いてあげるからね。",
       nurse:
         "こんにちは。体調や気持ちのことで気になることがあれば、遠慮なく相談してくださいね。",
       boyfriend:
@@ -128,7 +128,7 @@ export default function Chat() {
     // Simple response logic - in a real app, this would be more sophisticated
     const responses = {
       prince: [
-        "お姫様の気持ちはとてもよく分かります。どんな時も君の味方でいたいと思っています。",
+        "お姫様の気持ちはとてもよく分かります。どんな時も君の味方でいたいと��っています。",
         "君の健康は僕にとってとても大切です。無理をしないでくださいね。",
         "そんな時は休息を取ることが一番です。僕があなたを支えますから。",
       ],
@@ -144,7 +144,7 @@ export default function Chat() {
       ],
       nurse: [
         "その症状については適切な対処法がありますよ。まずは十分な休息を取ってください。",
-        "規則正しい生活と栄養バランスの取れた食事が大切です。",
+        "規則正し���生活と栄養バランスの取れた食事が大切です。",
         "症状が続く場合は専門医に相談することをお勧めします。",
       ],
       boyfriend: [
@@ -165,15 +165,29 @@ export default function Chat() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-app-blue-light via-blue-100 to-purple-100">
         <div className="max-w-md mx-auto bg-white min-h-screen">
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              相談相手を選んでください
-            </h1>
+          {/* Header */}
+          <div className="bg-white px-6 py-8 border-b border-gray-100">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-app-blue to-cyan-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-3xl">💬</span>
+              </div>
+              <h1 className="text-3xl font-bold text-gray-800 mb-3">
+                相談チャット
+              </h1>
+              <p className="text-lg text-gray-600">
+                話しやすい相手を選んでください
+              </p>
+            </div>
+          </div>
+
+          {/* Character Selection */}
+          <div className="p-6 pb-24">
             <CharacterSelector
               characters={characters}
               onSelect={handleCharacterSelect}
             />
           </div>
+
           <BottomNavigation currentPage="chat" />
         </div>
       </div>

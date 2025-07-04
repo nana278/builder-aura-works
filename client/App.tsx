@@ -12,7 +12,9 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import Chat from "./pages/Chat";
 import SymptomTracker from "./pages/SymptomTracker";
+import MoodTracker from "./pages/MoodTracker";
 import Calendar from "./pages/Calendar";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,7 +32,9 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/symptoms" element={<SymptomTracker />} />
+          <Route path="/mood" element={<MoodTracker />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

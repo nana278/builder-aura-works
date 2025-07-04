@@ -14,6 +14,15 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  // Mock period data - in real app, this would come from backend/context
+  const [periodDates] = useState<string[]>([
+    // Example period dates in YYYY-MM-DD format
+    "2024-01-15",
+    "2024-01-16",
+    "2024-01-17",
+    "2024-01-18",
+    "2024-01-19",
+  ]);
 
   const today = new Date();
   const formatDate = (date: Date) => {
@@ -60,15 +69,25 @@ export default function Dashboard() {
           <div className="grid grid-cols-7 gap-2">
             {weekDays.map((date, index) => {
               const isToday = date.toDateString() === today.toDateString();
+              const dateString = date.toISOString().split("T")[0]; // YYYY-MM-DD format
+              const isPeriodDay = periodDates.includes(dateString);
+
               return (
                 <div
                   key={index}
-                  className={`text-center p-3 rounded-2xl ${
-                    isToday ? "bg-app-blue text-white" : "bg-gray-100"
+                  className={`text-center p-3 rounded-2xl relative ${
+                    isToday
+                      ? "bg-app-blue text-white"
+                      : isPeriodDay
+                        ? "bg-app-red text-white"
+                        : "bg-gray-100"
                   }`}
                 >
                   <div className="text-xs mb-1">{getDayOfWeek(date)}</div>
                   <div className="text-lg font-semibold">{date.getDate()}</div>
+                  {isPeriodDay && (
+                    <div className="absolute top-1 right-1 text-xs">🩸</div>
+                  )}
                 </div>
               );
             })}

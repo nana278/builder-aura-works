@@ -23,6 +23,8 @@ export default function Dashboard() {
     "2024-01-18",
     "2024-01-19",
   ]);
+  // Track dates that have been recorded
+  const [recordedDates, setRecordedDates] = useState<string[]>([]);
 
   const today = new Date();
   const formatDate = (date: Date) => {

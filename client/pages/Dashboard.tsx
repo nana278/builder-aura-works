@@ -238,6 +238,12 @@ export default function Dashboard() {
                   </Button>
                   <Button
                     onClick={() => {
+                      const todayString = today.toISOString().split("T")[0];
+                      setRecordedDates((prev) =>
+                        prev.includes(todayString)
+                          ? prev
+                          : [...prev, todayString],
+                      );
                       setShowModal(false);
                       navigate("/symptoms");
                     }}

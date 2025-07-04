@@ -57,6 +57,19 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // PeriodCare app colors
+        "app-blue": {
+          DEFAULT: "hsl(var(--app-blue))",
+          light: "hsl(var(--app-blue-light))",
+          dark: "hsl(var(--app-blue-dark))",
+        },
+        "app-pink": {
+          DEFAULT: "hsl(var(--app-pink))",
+          light: "hsl(var(--app-pink-light))",
+        },
+        "app-red": {
+          DEFAULT: "hsl(var(--app-red))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -24,31 +24,21 @@ export default function CharacterSelector({
           key={character.id}
           onClick={() => onSelect(character)}
           variant="outline"
-          className="w-full h-24 justify-start p-4 rounded-3xl border-3 border-pink-200 hover:border-pink-300 hover:bg-pink-50 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl bg-white/80 backdrop-blur-sm group"
+          className="w-full h-20 justify-start p-4 rounded-2xl border-2 hover:border-app-blue/50 hover:bg-app-blue-light/20 transition-all"
         >
           <div className="flex items-center w-full">
-            <div className="relative">
-              <div
-                className={`w-16 h-16 rounded-full bg-gradient-to-br ${character.color} flex items-center justify-center mr-4 border-3 border-white shadow-lg group-hover:shadow-xl transition-all duration-300`}
-              >
-                <span className="text-3xl">{character.emoji}</span>
-              </div>
-              {/* Sparkle decoration */}
-              <div className="absolute -top-1 -right-1 text-pink-400 text-lg animate-pulse">
-                ✨
-              </div>
+            <div
+              className={`w-12 h-12 rounded-full bg-gradient-to-r ${character.color} flex items-center justify-center mr-4`}
+            >
+              <span className="text-2xl">{character.emoji}</span>
             </div>
             <div className="flex-1 text-left">
-              <div className="font-bold text-lg text-gray-800 mb-1 group-hover:text-pink-700 transition-colors">
+              <div className="font-semibold text-gray-800">
                 {character.name}
               </div>
-              <div className="text-sm text-gray-600 italic">
+              <div className="text-sm text-gray-600">
                 {character.description}
               </div>
-            </div>
-            {/* Heart decoration */}
-            <div className="text-pink-300 text-xl group-hover:text-pink-500 transition-colors ml-2">
-              💕
             </div>
           </div>
         </Button>

@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Plus, X } from "lucide-react";
+import { Plus, X, Settings } from "lucide-react";
 import BottomNavigation from "@/components/ui/BottomNavigation";
 
 export default function Dashboard() {
@@ -55,12 +55,21 @@ export default function Dashboard() {
         <div className="bg-white px-6 py-6 border-b">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-gray-800">今日の記録</h1>
-            <Button
-              onClick={() => setShowModal(true)}
-              className="w-12 h-12 rounded-full bg-app-blue hover:bg-app-blue-dark text-white p-0"
-            >
-              <Plus className="w-6 h-6" />
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button
+                onClick={() => navigate("/settings")}
+                variant="ghost"
+                className="w-10 h-10 rounded-full text-gray-600 hover:bg-gray-100 p-0"
+              >
+                <Settings className="w-5 h-5" />
+              </Button>
+              <Button
+                onClick={() => setShowModal(true)}
+                className="w-12 h-12 rounded-full bg-app-blue hover:bg-app-blue-dark text-white p-0"
+              >
+                <Plus className="w-6 h-6" />
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -91,6 +100,60 @@ export default function Dashboard() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="px-6 py-4">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">クイック記録</h2>
+          <div className="grid grid-cols-2 gap-3">
+            <Button
+              onClick={() => navigate("/symptoms")}
+              className="h-20 flex flex-col items-center justify-center bg-gradient-to-r from-app-pink to-pink-400 hover:from-pink-600 hover:to-pink-500 text-white rounded-2xl"
+            >
+              <span className="text-2xl mb-1">🩺</span>
+              <span className="text-sm font-medium">症状を記録</span>
+            </Button>
+            <Button
+              onClick={() => navigate("/mood")}
+              className="h-20 flex flex-col items-center justify-center bg-gradient-to-r from-app-blue to-cyan-400 hover:from-app-blue-dark hover:to-cyan-500 text-white rounded-2xl"
+            >
+              <span className="text-2xl mb-1">😊</span>
+              <span className="text-sm font-medium">体調を記録</span>
+            </Button>
+          </div>
+        </div>
+
+        {/* Recent Records */}
+        <div className="px-6 py-4">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">最近の記録</h2>
+          <div className="space-y-3">
+            <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <span className="text-lg mr-3">🩸</span>
+                  <div>
+                    <p className="text-sm font-medium text-gray-800">
+                      生理開始
+                    </p>
+                    <p className="text-xs text-gray-500">1月15日</p>
+                  </div>
+                </div>
+                <span className="text-xs text-gray-400">3日前</span>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <span className="text-lg mr-3">🤕</span>
+                  <div>
+                    <p className="text-sm font-medium text-gray-800">頭痛</p>
+                    <p className="text-xs text-gray-500">1月14日</p>
+                  </div>
+                </div>
+                <span className="text-xs text-gray-400">4日前</span>
+              </div>
+            </div>
           </div>
         </div>
 

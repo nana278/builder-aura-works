@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,6 +11,7 @@ import { Plus, X } from "lucide-react";
 import BottomNavigation from "@/components/ui/BottomNavigation";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -119,8 +121,14 @@ export default function Dashboard() {
                   <Button className="w-full h-14 text-lg rounded-2xl bg-app-red hover:bg-red-600 text-white">
                     生理開始
                   </Button>
-                  <Button className="w-full h-14 text-lg rounded-2xl bg-gradient-to-r from-app-pink to-pink-400 hover:from-pink-600 hover:to-pink-500 text-white">
-                    症状を記録
+                  <Button
+                    onClick={() => {
+                      setShowModal(false);
+                      navigate("/symptoms");
+                    }}
+                    className="w-full h-14 text-lg rounded-2xl bg-gradient-to-r from-app-pink to-pink-400 hover:from-pink-600 hover:to-pink-500 text-white"
+                  >
+                    症状���記録
                   </Button>
                   <Button className="w-full h-14 text-lg rounded-2xl bg-gradient-to-r from-app-blue to-cyan-400 hover:from-app-blue-dark hover:to-cyan-500 text-white">
                     体調を記録

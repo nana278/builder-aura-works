@@ -82,22 +82,30 @@ export default function Dashboard() {
               const isToday = date.toDateString() === today.toDateString();
               const dateString = date.toISOString().split("T")[0]; // YYYY-MM-DD format
               const isPeriodDay = periodDates.includes(dateString);
+              const isRecorded = recordedDates.includes(dateString);
 
               return (
                 <div
                   key={index}
-                  className={`text-center p-3 rounded-2xl relative ${
-                    isToday
-                      ? "bg-app-blue text-white"
-                      : isPeriodDay
-                        ? "bg-app-red text-white"
-                        : "bg-gray-100"
+                  className={`text-center p-3 rounded-2xl relative transition-colors ${
+                    isToday && isRecorded
+                      ? "bg-green-500 text-white" // Today with record
+                      : isToday
+                        ? "bg-app-blue text-white" // Today without record
+                        : isPeriodDay
+                          ? "bg-app-red text-white" // Period day
+                          : isRecorded
+                            ? "bg-green-400 text-white" // Other recorded day
+                            : "bg-gray-100" // Default
                   }`}
                 >
                   <div className="text-xs mb-1">{getDayOfWeek(date)}</div>
                   <div className="text-lg font-semibold">{date.getDate()}</div>
                   {isPeriodDay && (
                     <div className="absolute top-1 right-1 text-xs">🩸</div>
+                  )}
+                  {isRecorded && !isPeriodDay && (
+                    <div className="absolute top-1 right-1 text-xs">✓</div>
                   )}
                 </div>
               );

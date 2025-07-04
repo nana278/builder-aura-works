@@ -80,11 +80,11 @@ export default function Chat() {
   const getWelcomeMessage = (character: Character): string => {
     const messages = {
       prince:
-        "こんにちは、お���様。今日はどんなことでお悩みですか？僕があなたの気持ちを大切にお聞きします。",
+        "こんにちは、お姫様。今日はどんなことでお悩みですか？僕があなたの気持���を大切にお聞きします。",
       mother:
         "お疲れさま、大丈夫よ。何でもお母さんに話してみて。一緒に考えましょうね。",
       grandmother:
-        "あらあら、どうしたの？おばあちゃんがいるから安心しなさい。何でも聞いてあげるからね。",
+        "���らあら、どうしたの？おばあちゃんがいるから安心しなさい。何でも聞いてあげるからね。",
       nurse:
         "こんにちは。体調や気持ちのことで気になることがあれば、遠慮なく相談してくださいね。",
       boyfriend:
@@ -163,12 +163,31 @@ export default function Chat() {
 
   if (!selectedCharacter) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-app-blue-light via-blue-100 to-purple-100">
-        <div className="max-w-md mx-auto bg-white min-h-screen">
+      <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 relative overflow-hidden">
+        {/* Sparkle decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 left-10 text-pink-300 text-2xl animate-pulse">
+            ✨
+          </div>
+          <div className="absolute top-20 right-16 text-purple-300 text-xl animate-bounce">
+            💫
+          </div>
+          <div className="absolute bottom-32 left-8 text-blue-300 text-lg animate-pulse">
+            ⭐
+          </div>
+          <div className="absolute bottom-40 right-12 text-pink-300 text-2xl animate-bounce">
+            💖
+          </div>
+        </div>
+
+        <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm min-h-screen">
           <div className="p-6">
-            <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              相談相手を選んでください
-            </h1>
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-gray-800 mb-3">
+                💕 恋する相談室 💕
+              </h1>
+              <p className="text-lg text-gray-600">どなたとお話ししますか？</p>
+            </div>
             <CharacterSelector
               characters={characters}
               onSelect={handleCharacterSelect}
@@ -181,25 +200,72 @@ export default function Chat() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-app-blue-light via-blue-100 to-purple-100">
-      <div className="max-w-md mx-auto bg-white min-h-screen flex flex-col">
-        {/* Header */}
+    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 relative overflow-hidden">
+      {/* Romantic background decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-4 left-4 text-pink-300 text-sm animate-pulse">
+          💕
+        </div>
+        <div className="absolute top-12 right-8 text-purple-300 text-xs animate-bounce">
+          ✨
+        </div>
+        <div className="absolute top-24 left-12 text-blue-300 text-sm animate-pulse">
+          ⭐
+        </div>
+        <div className="absolute top-32 right-16 text-pink-300 text-xs animate-bounce">
+          🌸
+        </div>
+        <div className="absolute bottom-32 left-6 text-purple-300 text-sm animate-pulse">
+          💫
+        </div>
+        <div className="absolute bottom-40 right-10 text-blue-300 text-xs animate-bounce">
+          💖
+        </div>
+      </div>
+
+      <div className="max-w-md mx-auto bg-white/95 backdrop-blur-sm min-h-screen flex flex-col shadow-2xl">
+        {/* Otome Game Header */}
         <div
-          className={`bg-gradient-to-r ${selectedCharacter.color} px-6 py-4 text-white`}
+          className={`bg-gradient-to-r ${selectedCharacter.color} px-6 py-6 text-white relative overflow-hidden`}
         >
-          <div className="flex items-center">
-            <Button
-              variant="ghost"
-              onClick={() => setSelectedCharacter(null)}
-              className="p-0 h-auto text-white hover:bg-white/20 mr-4"
-            >
-              <ArrowLeft className="w-6 h-6" />
-            </Button>
+          {/* Decorative elements */}
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="absolute top-2 right-4 text-white/30 text-lg">✨</div>
+          <div className="absolute bottom-2 left-8 text-white/30 text-sm">
+            💖
+          </div>
+
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-2">
+              <Button
+                variant="ghost"
+                onClick={() => setSelectedCharacter(null)}
+                className="p-2 h-auto text-white hover:bg-white/20 rounded-full"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </Button>
+              <div className="flex items-center text-white/80">
+                <span className="text-sm mr-2">💬</span>
+                <span className="text-sm">チャット中</span>
+              </div>
+            </div>
+
             <div className="flex items-center">
-              <span className="text-2xl mr-3">{selectedCharacter.emoji}</span>
-              <div>
-                <h1 className="text-xl font-bold">{selectedCharacter.name}</h1>
-                <p className="text-sm text-white/80">
+              <div className="relative">
+                <div
+                  className={`w-16 h-16 rounded-full bg-gradient-to-br ${selectedCharacter.color} flex items-center justify-center border-4 border-white/30 shadow-lg`}
+                >
+                  <span className="text-3xl">{selectedCharacter.emoji}</span>
+                </div>
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-xs">💫</span>
+                </div>
+              </div>
+              <div className="ml-4">
+                <h1 className="text-2xl font-bold drop-shadow-sm">
+                  {selectedCharacter.name}
+                </h1>
+                <p className="text-sm text-white/90 italic">
                   {selectedCharacter.description}
                 </p>
               </div>
@@ -207,23 +273,65 @@ export default function Chat() {
           </div>
         </div>
 
-        {/* Messages */}
-        <div className="flex-1 p-4 space-y-4 overflow-y-auto">
+        {/* Otome Game Messages */}
+        <div className="flex-1 p-4 space-y-6 overflow-y-auto bg-gradient-to-b from-pink-50/50 to-purple-50/50">
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}
+              className={`flex ${message.isUser ? "justify-end" : "justify-start"} items-end space-x-2`}
             >
-              <div
-                className={`max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
-                  message.isUser
-                    ? "bg-app-blue text-white"
-                    : "bg-gray-100 text-gray-800"
-                }`}
-              >
-                <p className="text-sm">{message.text}</p>
+              {!message.isUser && (
+                <div className="flex-shrink-0">
+                  <div
+                    className={`w-12 h-12 rounded-full bg-gradient-to-br ${selectedCharacter.color} flex items-center justify-center border-2 border-white shadow-lg`}
+                  >
+                    <span className="text-lg">{selectedCharacter.emoji}</span>
+                  </div>
+                </div>
+              )}
+
+              <div className="max-w-xs lg:max-w-md relative">
+                {!message.isUser && (
+                  <div className="mb-1">
+                    <span className="text-sm font-semibold text-gray-700 px-3">
+                      {selectedCharacter.name}
+                    </span>
+                  </div>
+                )}
+
+                <div
+                  className={`relative px-6 py-4 rounded-3xl shadow-lg ${
+                    message.isUser
+                      ? "bg-gradient-to-r from-app-blue to-cyan-400 text-white ml-4"
+                      : "bg-white text-gray-800 border-2 border-pink-100 mr-4"
+                  }`}
+                >
+                  {/* Speech bubble tail */}
+                  <div
+                    className={`absolute top-4 w-4 h-4 transform rotate-45 ${
+                      message.isUser
+                        ? "bg-app-blue -right-1"
+                        : "bg-white border-r-2 border-b-2 border-pink-100 -left-1"
+                    }`}
+                  ></div>
+
+                  <p className="text-base leading-relaxed relative z-10">
+                    {message.text}
+                  </p>
+
+                  {!message.isUser && (
+                    <div className="absolute -top-2 -right-2 text-pink-400 text-sm animate-pulse">
+                      💕
+                    </div>
+                  )}
+                </div>
+
                 <p
-                  className={`text-xs mt-1 ${message.isUser ? "text-blue-100" : "text-gray-500"}`}
+                  className={`text-xs mt-1 px-3 ${
+                    message.isUser
+                      ? "text-right text-gray-500"
+                      : "text-left text-gray-500"
+                  }`}
                 >
                   {message.timestamp.toLocaleTimeString([], {
                     hour: "2-digit",
@@ -231,26 +339,39 @@ export default function Chat() {
                   })}
                 </p>
               </div>
+
+              {message.isUser && (
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-app-blue to-cyan-400 flex items-center justify-center border-2 border-white shadow-lg">
+                    <span className="text-lg">👤</span>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        {/* Input */}
-        <div className="p-4 border-t">
-          <div className="flex space-x-2">
-            <Input
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              placeholder="メッセージを入力..."
-              className="flex-1 rounded-full"
-              onKeyPress={(e) => e.key === "Enter" && sendMessage()}
-            />
+        {/* Otome Game Input */}
+        <div className="p-4 bg-white/80 backdrop-blur-sm border-t border-pink-100">
+          <div className="flex space-x-3 items-center">
+            <div className="flex-1 relative">
+              <Input
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                placeholder="心の想いを伝えて..."
+                className="rounded-full border-2 border-pink-200 bg-white/90 text-gray-800 placeholder:text-gray-500 pl-6 pr-12 py-3 text-base focus:border-pink-300 focus:ring-pink-200"
+                onKeyPress={(e) => e.key === "Enter" && sendMessage()}
+              />
+              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-pink-300">
+                💬
+              </div>
+            </div>
             <Button
               onClick={sendMessage}
               size="icon"
-              className="rounded-full bg-app-blue hover:bg-app-blue-dark"
+              className={`rounded-full w-12 h-12 bg-gradient-to-r ${selectedCharacter.color} hover:shadow-lg transform hover:scale-105 transition-all duration-200 border-2 border-white shadow-md`}
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-5 h-5" />
             </Button>
           </div>
         </div>

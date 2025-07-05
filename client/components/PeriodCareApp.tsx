@@ -17,6 +17,7 @@ import {
   FileText,
   LogOut,
   Check,
+  Send,
 } from "lucide-react";
 
 const PeriodCareApp = () => {
@@ -53,14 +54,14 @@ const PeriodCareApp = () => {
 
   // Login Screen
   const LoginScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex flex-col items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-sm">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <Heart className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">PeriodCare</h1>
-          <p className="text-gray-600 text-sm">あなたの健康をサポート</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">PeriodCare</h1>
+          <p className="text-gray-500 text-sm">あなたの健康をサポート</p>
         </div>
 
         <div className="space-y-4">
@@ -68,42 +69,51 @@ const PeriodCareApp = () => {
             <input
               type="email"
               placeholder="メールアドレス"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-400 focus:outline-none"
+              className="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:border-sky-400 focus:outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
           <div>
             <input
               type="password"
               placeholder="パスワード"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-400 focus:outline-none"
+              className="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:border-sky-400 focus:outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
           <button
             onClick={() => setCurrentScreen("home")}
-            className="w-full bg-gradient-to-r from-blue-400 to-cyan-400 text-white py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all"
+            className="w-full bg-gradient-to-r from-sky-400 to-sky-500 text-white py-4 rounded-xl font-semibold text-lg hover:from-sky-500 hover:to-sky-600 transition-all shadow-lg"
           >
             ログイン
           </button>
 
           <button
             onClick={() => setCurrentScreen("forgotPassword")}
-            className="w-full text-center text-sm text-gray-600 hover:text-blue-600 transition-colors"
+            className="w-full text-center text-sm text-gray-500 hover:text-sky-600 transition-colors py-2"
           >
             パスワードをお忘れの方はこちら
           </button>
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-100">
-          <button className="w-full flex items-center justify-center space-x-2 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors mb-4">
-            <span className="text-sm text-gray-700">Googleでログイン</span>
+          <button className="w-full flex items-center justify-center space-x-3 py-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors mb-4">
+            <div className="w-5 h-5 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full"></div>
+            <span className="text-sm text-gray-700 font-medium">
+              Googleでログイン
+            </span>
           </button>
 
           <div className="text-center">
             <button
               onClick={() => setCurrentScreen("register")}
-              className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+              className="text-sm text-sky-600 hover:text-sky-800 transition-colors font-medium"
             >
               新規登録はこちら
+            </button>
+          </div>
+
+          <div className="text-center mt-4">
+            <button className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
+              プライバシーポリシー等に関する問い合わせ
             </button>
           </div>
         </div>
@@ -113,75 +123,103 @@ const PeriodCareApp = () => {
 
   // Registration Screen
   const RegisterScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex flex-col items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-sm">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <Heart className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">新規登録</h1>
-          <p className="text-gray-600 text-sm">アカウントを作成しましょう</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">PeriodCare</h1>
+          <p className="text-gray-500 text-sm">あなたの健康をサポート</p>
         </div>
 
         <div className="space-y-4">
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              お名前
+            </label>
             <input
               type="text"
-              placeholder="お名前"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-400 focus:outline-none"
+              placeholder="山田 花子"
+              className="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:border-sky-400 focus:outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              メールアドレス
+            </label>
             <input
               type="email"
-              placeholder="メールアドレス"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-400 focus:outline-none"
+              placeholder="example@email.com"
+              className="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:border-sky-400 focus:outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              パスワード
+            </label>
             <input
               type="password"
-              placeholder="パスワード（8文字以上）"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-400 focus:outline-none"
+              placeholder="8文字以上で入力してください"
+              className="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:border-sky-400 focus:outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              パスワード（確認）
+            </label>
             <input
               type="password"
-              placeholder="パスワード確認"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-400 focus:outline-none"
+              placeholder="もう一度入力してください"
+              className="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:border-sky-400 focus:outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
 
-          <div className="flex items-start space-x-3">
-            <input type="checkbox" className="mt-1" />
-            <p className="text-xs text-gray-600">
-              <span className="text-blue-600 underline cursor-pointer">
+          <div className="flex items-start space-x-3 py-2">
+            <input
+              type="checkbox"
+              className="mt-1 w-4 h-4 text-sky-600 border-gray-300 rounded"
+            />
+            <p className="text-xs text-gray-600 leading-relaxed">
+              <span className="text-sky-600 underline cursor-pointer">
                 利用規約
               </span>
               および
-              <span className="text-blue-600 underline cursor-pointer">
+              <span className="text-sky-600 underline cursor-pointer">
                 プライバシーポリシー
               </span>
-              に同意します
+              に同意して
+              <br />
+              アカウントを作成します
             </p>
           </div>
 
           <button
             onClick={() => setCurrentScreen("home")}
-            className="w-full bg-gradient-to-r from-blue-400 to-cyan-400 text-white py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all"
+            className="w-full bg-gradient-to-r from-sky-400 to-sky-500 text-white py-4 rounded-xl font-semibold text-lg hover:from-sky-500 hover:to-sky-600 transition-all shadow-lg"
           >
             新規登録
           </button>
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-100">
+          <div className="text-center mb-4">
+            <span className="text-sm text-gray-500">または</span>
+          </div>
+
+          <button className="w-full flex items-center justify-center space-x-3 py-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors mb-4">
+            <div className="w-5 h-5 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full"></div>
+            <span className="text-sm text-gray-700 font-medium">
+              Googleで新規登録
+            </span>
+          </button>
+
           <div className="text-center">
             <button
               onClick={() => setCurrentScreen("login")}
-              className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+              className="text-sm text-sky-600 hover:text-sky-800 transition-colors font-medium"
             >
-              既にアカウントをお持ちの方はこちら
+              すでにアカウントをお持ちの方はこちら
             </button>
           </div>
         </div>
@@ -191,16 +229,16 @@ const PeriodCareApp = () => {
 
   // Forgot Password Screen
   const ForgotPasswordScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex flex-col items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-sm">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <Heart className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
             パスワード再設定
           </h1>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-500 text-sm">
             登録したメールアドレスを入力してください
           </p>
         </div>
@@ -210,12 +248,12 @@ const PeriodCareApp = () => {
             <input
               type="email"
               placeholder="メールアドレス"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-400 focus:outline-none"
+              className="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:border-sky-400 focus:outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
           <button
             onClick={() => setCurrentScreen("login")}
-            className="w-full bg-gradient-to-r from-blue-400 to-cyan-400 text-white py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all"
+            className="w-full bg-gradient-to-r from-sky-400 to-sky-500 text-white py-4 rounded-xl font-semibold text-lg hover:from-sky-500 hover:to-sky-600 transition-all shadow-lg"
           >
             再設定メールを送信
           </button>
@@ -223,7 +261,7 @@ const PeriodCareApp = () => {
           <div className="text-center">
             <button
               onClick={() => setCurrentScreen("login")}
-              className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+              className="text-sm text-sky-600 hover:text-sky-800 transition-colors font-medium"
             >
               ログイン画面に戻る
             </button>
@@ -368,30 +406,49 @@ const PeriodCareApp = () => {
 
   // Home Screen
   const HomeScreen = () => {
-    const monthDays = Array.from({ length: 31 }, (_, i) => i + 1);
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonthIndex = today.getMonth();
+    const currentDay = today.getDate();
+
+    // Get days in current month
+    const daysInMonth = new Date(
+      currentYear,
+      currentMonthIndex + 1,
+      0,
+    ).getDate();
+    const firstDayOfMonth = new Date(
+      currentYear,
+      currentMonthIndex,
+      1,
+    ).getDay();
+
+    // Create calendar grid
+    const calendarDays = [];
+
+    // Add empty cells for days before month starts
+    for (let i = 0; i < firstDayOfMonth; i++) {
+      calendarDays.push(null);
+    }
+
+    // Add all days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+      calendarDays.push(day);
+    }
 
     return (
       <div className="min-h-screen bg-gray-50 pb-20">
-        <div className="bg-white shadow-sm p-6">
+        <div className="bg-white p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-2xl font-bold text-gray-800">今日の記録</h1>
-              <p className="text-sm text-blue-600">次回予測: 4月12日</p>
+              <h1 className="text-xl font-bold text-gray-900">今日の記録</h1>
             </div>
-            <div className="flex items-center space-x-3">
-              <button
-                onClick={() => setIsEditMode(!isEditMode)}
-                className="p-2 rounded-full hover:bg-gray-100"
-              >
-                <Edit3 className="w-5 h-5 text-gray-600" />
-              </button>
-              <button
-                onClick={() => setShowDateModal(true)}
-                className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center shadow-lg"
-              >
-                <Plus className="w-6 h-6 text-white" />
-              </button>
-            </div>
+            <button
+              onClick={() => setShowDateModal(true)}
+              className="w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center shadow-lg"
+            >
+              <Plus className="w-6 h-6 text-white" />
+            </button>
           </div>
 
           {/* Calendar Section */}
@@ -399,32 +456,36 @@ const PeriodCareApp = () => {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-gray-900">カレンダー</h2>
               <div className="flex items-center space-x-4">
-                <button className="p-2 rounded-full hover:bg-gray-200">
-                  <ChevronLeft className="w-5 h-5 text-gray-600" />
+                <button className="p-1">
+                  <ChevronLeft className="w-6 h-6 text-gray-600" />
                 </button>
-                <span className="text-lg font-semibold text-gray-800">
+                <span className="text-lg font-bold text-gray-900">
                   2024年3月
                 </span>
-                <button className="p-2 rounded-full hover:bg-gray-200">
-                  <ChevronRight className="w-5 h-5 text-gray-600" />
+                <button className="p-1">
+                  <ChevronRight className="w-6 h-6 text-gray-600" />
                 </button>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-4">
-              <div className="grid grid-cols-7 gap-1 text-center mb-2">
+            <div className="bg-white rounded-xl border border-gray-100">
+              <div className="grid grid-cols-7 gap-0 text-center">
                 {["日", "月", "火", "水", "木", "金", "土"].map((day) => (
                   <div
                     key={day}
-                    className="p-2 text-sm font-medium text-gray-600"
+                    className="py-3 text-sm font-medium text-gray-600 border-b border-gray-100"
                   >
                     {day}
                   </div>
                 ))}
               </div>
 
-              <div className="grid grid-cols-7 gap-1">
-                {monthDays.map((day) => {
+              <div className="grid grid-cols-7 gap-0">
+                {calendarDays.map((day, index) => {
+                  if (day === null) {
+                    return <div key={index} className="h-12"></div>;
+                  }
+
                   const dateString = `2024-03-${String(day).padStart(2, "0")}`;
                   const isPeriodDay = recordedDates.includes(dateString);
                   const isToday = day === 15; // Mock today
@@ -432,12 +493,12 @@ const PeriodCareApp = () => {
                   return (
                     <div
                       key={day}
-                      className={`h-10 w-10 rounded-lg flex items-center justify-center text-sm cursor-pointer transition-colors ${
+                      className={`h-12 flex items-center justify-center text-sm cursor-pointer transition-colors border-r border-b border-gray-50 last:border-r-0 ${
                         isPeriodDay
-                          ? "bg-red-200 text-red-800"
+                          ? "bg-red-100 text-red-800"
                           : isToday
                             ? "bg-blue-500 text-white"
-                            : "hover:bg-gray-200"
+                            : "hover:bg-gray-50 text-gray-900"
                       }`}
                       onClick={() =>
                         isEditMode && setSelectedDate(new Date(2024, 2, day))
@@ -456,53 +517,27 @@ const PeriodCareApp = () => {
         <div className="px-6 pb-6">
           <h2 className="text-lg font-bold text-gray-900 mb-4">月間サマリー</h2>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-red-50 rounded-2xl p-4 text-center">
+            <div className="bg-white rounded-xl p-6 border border-gray-100">
               <p className="text-sm text-red-600 mb-1">生理期間</p>
-              <p className="text-2xl font-bold text-red-700">5日</p>
+              <p className="text-3xl font-bold text-red-700">5日</p>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-4 text-center">
+            <div className="bg-white rounded-xl p-6 border border-gray-100">
               <p className="text-sm text-blue-600 mb-1">平均周期</p>
-              <p className="text-2xl font-bold text-blue-700">28日</p>
+              <p className="text-3xl font-bold text-blue-700">28日</p>
             </div>
           </div>
         </div>
 
         {/* Health Advice */}
         <div className="px-6 pb-6">
-          <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
               健康アドバイス
             </h3>
-            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4">
+            <div className="bg-gradient-to-r from-blue-50 to-sky-50 rounded-xl p-4">
               <p className="text-sm text-gray-700">
                 今日は水分をしっかり摂取しましょう。軽い運動もおすすめです。
               </p>
-            </div>
-          </div>
-
-          {/* Period History */}
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              直近6ヶ月の生理記録
-            </h3>
-            <div className="space-y-3">
-              {[
-                { start: "2024/3/15", end: "2024/3/19", cycle: "28日" },
-                { start: "2024/2/16", end: "2024/2/20", cycle: "29日" },
-                { start: "2024/1/18", end: "2024/1/22", cycle: "27日" },
-              ].map((period, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between p-3 bg-red-50 rounded-lg"
-                >
-                  <div>
-                    <p className="text-sm font-medium text-red-800">
-                      {period.start} - {period.end}
-                    </p>
-                    <p className="text-xs text-red-600">周期: {period.cycle}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -512,54 +547,65 @@ const PeriodCareApp = () => {
 
   // Character Selection Screen
   const CharacterSelectionScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white pb-20">
       <div className="bg-white shadow-sm p-6">
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={() => setCurrentScreen("home")}
-            className="p-2 rounded-full hover:bg-gray-100"
-          >
-            <ArrowLeft className="w-6 h-6 text-gray-600" />
-          </button>
-          <h1 className="text-xl font-bold text-gray-800">
-            チャット相手を選択
+        <div className="flex items-center justify-center mb-6 relative">
+          <div className="w-16 h-16 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center">
+            <MessageCircle className="w-8 h-8 text-white" />
+          </div>
+        </div>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            相談チャット
           </h1>
-          <div className="w-10"></div>
+          <p className="text-gray-500 text-sm">
+            話しやすい相手を選んでください
+          </p>
         </div>
       </div>
 
       <div className="p-6">
-        <div className="grid grid-cols-1 gap-4">
+        <div className="space-y-4">
           {[
             {
               id: "prince",
               name: "王子様",
-              emoji: "🤴",
-              description: "優しく励ましてくれます",
+              avatar: "👑",
+              bgColor: "from-purple-400 to-purple-500",
+              description: "優しく気遣ってくれる王子様",
+              online: true,
             },
             {
               id: "mother",
               name: "お母さん",
-              emoji: "👩",
-              description: "温かく見守ってくれます",
+              avatar: "👩",
+              bgColor: "from-pink-400 to-pink-500",
+              description: "温かく包み込んでくれるお母さん",
+              online: true,
             },
             {
               id: "grandmother",
               name: "おばあちゃん",
-              emoji: "👵",
-              description: "経験豊富で優しいです",
-            },
-            {
-              id: "boyfriend",
-              name: "彼氏",
-              emoji: "👨",
-              description: "理解を示してくれます",
+              avatar: "👵",
+              bgColor: "from-orange-400 to-orange-500",
+              description: "経験豊富で知恵のあるおばあちゃん",
+              online: true,
             },
             {
               id: "nurse",
               name: "保健室の先生",
-              emoji: "👩‍⚕️",
-              description: "専門的なアドバイスをくれます",
+              avatar: "👩‍⚕️",
+              bgColor: "from-green-400 to-green-500",
+              description: "医学的知識豊富な保健室の先生",
+              online: true,
+            },
+            {
+              id: "boyfriend",
+              name: "彼氏",
+              avatar: "💕",
+              bgColor: "from-red-400 to-red-500",
+              description: "理解のある優しい彼氏",
+              online: false,
             },
           ].map((character) => (
             <button
@@ -568,18 +614,28 @@ const PeriodCareApp = () => {
                 setSelectedCharacter(character.id);
                 setCurrentScreen("chat");
               }}
-              className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition-shadow"
+              className="w-full bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition-all border border-gray-100"
             >
               <div className="flex items-center space-x-4">
-                <div className="text-4xl">{character.emoji}</div>
-                <div className="text-left">
-                  <h3 className="text-lg font-semibold text-gray-800">
+                <div className="relative">
+                  <div
+                    className={`w-14 h-14 bg-gradient-to-br ${character.bgColor} rounded-full flex items-center justify-center text-2xl`}
+                  >
+                    {character.avatar}
+                  </div>
+                  <div
+                    className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white ${character.online ? "bg-green-400" : "bg-gray-300"}`}
+                  ></div>
+                </div>
+                <div className="text-left flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">
                     {character.name}
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-500">
                     {character.description}
                   </p>
                 </div>
+                <ChevronRight className="w-5 h-5 text-gray-400" />
               </div>
             </button>
           ))}
@@ -589,114 +645,185 @@ const PeriodCareApp = () => {
   );
 
   // Chat Screen
-  const ChatScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 pb-20">
-      <div className="bg-white shadow-sm p-6">
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={() => setCurrentScreen("characterSelection")}
-            className="p-2 rounded-full hover:bg-gray-100"
-          >
-            <ArrowLeft className="w-6 h-6 text-gray-600" />
-          </button>
-          <h1 className="text-xl font-bold text-gray-800">
-            {selectedCharacter === "prince" && "王子様"}
-            {selectedCharacter === "mother" && "お母さん"}
-            {selectedCharacter === "grandmother" && "おばあちゃん"}
-            {selectedCharacter === "boyfriend" && "彼氏"}
-            {selectedCharacter === "nurse" && "保健室の先生"}
-          </h1>
-          <div className="w-10"></div>
-        </div>
-      </div>
+  const ChatScreen = () => {
+    const characterData = {
+      prince: {
+        name: "王子様",
+        avatar: "👑",
+        bgGradient: "from-purple-400 to-purple-600",
+        description: "優しく気遣ってくれる王子様",
+      },
+      mother: {
+        name: "お母さん",
+        avatar: "👩",
+        bgGradient: "from-pink-400 to-pink-600",
+        description: "温かく包み込んでくれるお母さん",
+      },
+      grandmother: {
+        name: "おばあちゃん",
+        avatar: "👵",
+        bgGradient: "from-orange-400 to-orange-600",
+        description: "経験豊富で知恵のあるおばあちゃん",
+      },
+      nurse: {
+        name: "保健室の先生",
+        avatar: "👩‍⚕️",
+        bgGradient: "from-green-400 to-green-600",
+        description: "医学的知識豊富な保健室の先生",
+      },
+      boyfriend: {
+        name: "彼氏",
+        avatar: "💕",
+        bgGradient: "from-red-400 to-red-600",
+        description: "理解のある優しい彼氏",
+      },
+    };
 
-      <div className="p-6 space-y-4">
-        <div className="bg-white rounded-2xl shadow-sm p-4">
-          <div className="flex items-start space-x-3">
-            <div className="text-2xl">
-              {selectedCharacter === "prince" && "🤴"}
-              {selectedCharacter === "mother" && "👩"}
-              {selectedCharacter === "grandmother" && "👵"}
-              {selectedCharacter === "boyfriend" && "👨"}
-              {selectedCharacter === "nurse" && "👩‍⚕️"}
+    const character = characterData[selectedCharacter] || characterData.prince;
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white pb-20">
+        {/* Header */}
+        <div
+          className={`bg-gradient-to-r ${character.bgGradient} p-6 text-white`}
+        >
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setCurrentScreen("characterSelection")}
+              className="p-2 rounded-full hover:bg-white/20 transition-colors"
+            >
+              <ArrowLeft className="w-6 h-6" />
+            </button>
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl">
+                {character.avatar}
+              </div>
+              <div>
+                <h1 className="text-xl font-bold">{character.name}</h1>
+                <p className="text-sm opacity-90">{character.description}</p>
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-gray-700">
-                {selectedCharacter === "prince" &&
-                  "お疲れ様、お姫様。今日��どんな一日でしたか？"}
-                {selectedCharacter === "mother" &&
-                  "お疲れ様、今日の調子はどうでしたか？"}
-                {selectedCharacter === "grandmother" &&
-                  "お疲れ様でした。体調はいかがですか？"}
-                {selectedCharacter === "boyfriend" &&
-                  "お疲れ様！今日はどうだった？"}
-                {selectedCharacter === "nurse" &&
-                  "こんにちは。今日の体調について教えてください。"}
-              </p>
+            <div className="ml-auto flex items-center space-x-2">
+              <MessageCircle className="w-5 h-5 opacity-70" />
+              <span className="text-sm">チャット中</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="fixed bottom-20 left-0 right-0 p-4 bg-white border-t border-gray-200">
-        <div className="flex items-center space-x-2">
-          <input
-            type="text"
-            placeholder="メッセージを入力..."
-            className="flex-1 px-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:border-blue-400"
-          />
-          <button className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center">
-            <span className="text-white">→</span>
-          </button>
+        {/* Chat Messages */}
+        <div className="p-6 space-y-4 flex-1">
+          <div className="bg-white rounded-2xl shadow-sm p-4 max-w-xs">
+            <div className="flex items-start space-x-3">
+              <div className="text-2xl">{character.avatar}</div>
+              <div>
+                <p className="text-sm font-medium text-gray-900 mb-1">
+                  {character.name}
+                </p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {selectedCharacter === "prince" &&
+                    "こんにちは、美しいお姫様…。今日はどんなことで君の心が曇っているのかな？✨💎✨僕が���君の全てを受け止めよう。遠慮はいらないよ✨"}
+                  {selectedCharacter === "mother" &&
+                    "お疲れ様、今日の調子はどうでしたか？お母さんにはなんでも話してね。"}
+                  {selectedCharacter === "grandmother" &&
+                    "お疲れ様でした。体調はいかがですか？おばあちゃんの経験をお話ししましょうか。"}
+                  {selectedCharacter === "boyfriend" &&
+                    "お疲れ様！今日はどうだった？"}
+                  {selectedCharacter === "nurse" &&
+                    "こんにちは。今日の体調について教えてください。"}
+                </p>
+                <p className="text-xs text-gray-400 mt-2">14:53</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Message Input */}
+        <div className="fixed bottom-20 left-0 right-0 p-4 bg-white border-t border-gray-100">
+          <div className="flex items-center space-x-3 max-w-md mx-auto">
+            <input
+              type="text"
+              placeholder="心の想いを伝えて..."
+              className="flex-1 px-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:border-sky-400 bg-gray-50"
+            />
+            <button
+              className={`w-12 h-12 bg-gradient-to-br ${character.bgGradient} rounded-full flex items-center justify-center shadow-lg`}
+            >
+              <Send className="w-5 h-5 text-white" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   // Settings Screen
   const SettingsScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white pb-20">
       <div className="bg-white shadow-sm p-6">
-        <h1 className="text-2xl font-bold text-gray-800">設定</h1>
+        <h1 className="text-2xl font-bold text-gray-900">設定</h1>
       </div>
 
       <div className="p-6">
-        <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
-          <div className="space-y-4">
-            <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
-              <User className="w-6 h-6 text-gray-600" />
-              <span className="text-gray-800">プロフィール設定</span>
+        <div className="bg-white rounded-2xl shadow-sm p-6 mb-6 border border-gray-100">
+          <div className="space-y-1">
+            <button className="w-full flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors">
+              <div className="flex items-center space-x-4">
+                <User className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-900 font-medium">
+                  プロフィール設定
+                </span>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
             </button>
 
-            <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
-              <Bell className="w-6 h-6 text-gray-600" />
-              <span className="text-gray-800">通知設定</span>
+            <button className="w-full flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors">
+              <div className="flex items-center space-x-4">
+                <Bell className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-900 font-medium">通知設定</span>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
             </button>
 
-            <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
-              <Shield className="w-6 h-6 text-gray-600" />
-              <span className="text-gray-800">プライバシー設定</span>
+            <button className="w-full flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors">
+              <div className="flex items-center space-x-4">
+                <Shield className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-900 font-medium">
+                  プライバシー設定
+                </span>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
             </button>
 
-            <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
-              <HelpCircle className="w-6 h-6 text-gray-600" />
-              <span className="text-gray-800">ヘルプ・サポート</span>
+            <button className="w-full flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors">
+              <div className="flex items-center space-x-4">
+                <HelpCircle className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-900 font-medium">
+                  ヘルプ・サポート
+                </span>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
             </button>
 
-            <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
-              <FileText className="w-6 h-6 text-gray-600" />
-              <span className="text-gray-800">利用規約</span>
+            <button className="w-full flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors">
+              <div className="flex items-center space-x-4">
+                <FileText className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-900 font-medium">利用規約</span>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
             </button>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-6">
+        <div className="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
           <button
             onClick={() => setCurrentScreen("login")}
-            className="w-full flex items-center space-x-4 p-4 hover:bg-red-50 rounded-lg transition-colors text-red-600"
+            className="w-full flex items-center justify-between p-4 hover:bg-red-50 rounded-lg transition-colors text-red-600"
           >
-            <LogOut className="w-6 h-6" />
-            <span>ログアウト</span>
+            <div className="flex items-center space-x-4">
+              <LogOut className="w-6 h-6" />
+              <span className="font-medium">ログアウト</span>
+            </div>
+            <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       </div>
@@ -711,7 +838,7 @@ const PeriodCareApp = () => {
           onClick={() => setCurrentScreen("characterSelection")}
           className={`flex flex-col items-center space-y-1 p-2 rounded-lg transition-colors ${
             currentScreen === "chat" || currentScreen === "characterSelection"
-              ? "text-blue-500"
+              ? "text-sky-500 bg-sky-50"
               : "text-gray-500"
           }`}
         >
@@ -722,7 +849,9 @@ const PeriodCareApp = () => {
         <button
           onClick={() => setCurrentScreen("home")}
           className={`flex flex-col items-center space-y-1 p-2 rounded-lg transition-colors ${
-            currentScreen === "home" ? "text-blue-500" : "text-gray-500"
+            currentScreen === "home"
+              ? "text-sky-500 bg-sky-50"
+              : "text-gray-500"
           }`}
         >
           <Home className="w-6 h-6" />
@@ -730,20 +859,22 @@ const PeriodCareApp = () => {
         </button>
 
         <button
-          onClick={() => setCurrentScreen("settings")}
+          onClick={() => setCurrentScreen("calendar")}
           className={`flex flex-col items-center space-y-1 p-2 rounded-lg transition-colors ${
-            currentScreen === "settings" ? "text-blue-500" : "text-gray-500"
+            currentScreen === "calendar"
+              ? "text-sky-500 bg-sky-50"
+              : "text-gray-500"
           }`}
         >
-          <User className="w-6 h-6" />
-          <span className="text-xs font-medium">設定</span>
+          <Calendar className="w-6 h-6" />
+          <span className="text-xs font-medium">カレンダー</span>
         </button>
       </div>
     </div>
   );
 
   return (
-    <div className="bg-gray-100 min-h-screen max-w-md mx-auto">
+    <div className="bg-gray-100 min-h-screen max-w-md mx-auto relative">
       {currentScreen === "appIcon" && <AppIconScreen />}
       {currentScreen === "login" && <LoginScreen />}
       {currentScreen === "register" && <RegisterScreen />}

@@ -517,12 +517,12 @@ const PeriodCareApp = () => {
         <div className="px-6 pb-6">
           <h2 className="text-lg font-bold text-gray-900 mb-4">月間サマリー</h2>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white rounded-xl p-6 border border-gray-100">
-              <p className="text-sm text-red-600 mb-1">生理期間</p>
+            <div className="bg-red-50 rounded-2xl p-6 border border-red-100">
+              <p className="text-sm text-red-600 mb-2">生理期間</p>
               <p className="text-3xl font-bold text-red-700">5日</p>
             </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-100">
-              <p className="text-sm text-blue-600 mb-1">平均周期</p>
+            <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+              <p className="text-sm text-blue-600 mb-2">平均周期</p>
               <p className="text-3xl font-bold text-blue-700">28日</p>
             </div>
           </div>
@@ -680,7 +680,7 @@ const PeriodCareApp = () => {
         name: "王子様",
         avatar: "👑",
         bgGradient: "from-purple-400 to-purple-600",
-        description: "優しく気遣っ���くれる王子様",
+        description: "優しく気遣ってくれる王子様",
       },
       mother: {
         name: "お母さん",

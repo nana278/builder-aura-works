@@ -370,7 +370,7 @@ const PeriodCareApp = () => {
             生理が始まりましたか？
           </h2>
           <p className="text-gray-600 text-sm mb-6">
-            こ��操作をすると、
+            この操作をすると、
             <span className="font-bold text-red-600">
               {selectedDate.getFullYear()}年{selectedDate.getMonth() + 1}月
               {selectedDate.getDate()}日
@@ -437,7 +437,7 @@ const PeriodCareApp = () => {
     }
 
     return (
-      <div className="min-h-screen bg-gray-50 pb-20">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white pb-20">
         <div className="bg-white p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -468,7 +468,7 @@ const PeriodCareApp = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl border border-gray-100">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100">
               <div className="grid grid-cols-7 gap-0 text-center">
                 {["日", "月", "火", "水", "木", "金", "土"].map((day) => (
                   <div
@@ -495,9 +495,9 @@ const PeriodCareApp = () => {
                       key={day}
                       className={`h-12 flex items-center justify-center text-sm cursor-pointer transition-colors border-r border-b border-gray-50 last:border-r-0 ${
                         isPeriodDay
-                          ? "bg-red-100 text-red-800"
+                          ? "bg-red-200 text-red-800 font-semibold"
                           : isToday
-                            ? "bg-blue-500 text-white"
+                            ? "bg-blue-500 text-white font-semibold"
                             : "hover:bg-gray-50 text-gray-900"
                       }`}
                       onClick={() =>
@@ -606,7 +606,7 @@ const PeriodCareApp = () => {
             },
             {
               id: "mother",
-              name: "お母��ん",
+              name: "お母さん",
               avatar: "👩",
               bgColor: "from-pink-400 to-pink-500",
               description: "温かく包み込んでくれるお母さん",
@@ -680,7 +680,7 @@ const PeriodCareApp = () => {
         name: "王子様",
         avatar: "👑",
         bgGradient: "from-purple-400 to-purple-600",
-        description: "優しく気遣ってくれる王子様",
+        description: "優しく気遣っ���くれる王子様",
       },
       mother: {
         name: "お母さん",

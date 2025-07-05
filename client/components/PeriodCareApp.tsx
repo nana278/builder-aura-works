@@ -370,7 +370,7 @@ const PeriodCareApp = () => {
             生理が始まりましたか？
           </h2>
           <p className="text-gray-600 text-sm mb-6">
-            この操作をすると、
+            こ��操作をすると、
             <span className="font-bold text-red-600">
               {selectedDate.getFullYear()}年{selectedDate.getMonth() + 1}月
               {selectedDate.getDate()}日
@@ -540,6 +540,35 @@ const PeriodCareApp = () => {
               </p>
             </div>
           </div>
+
+          {/* Recent Period History */}
+          <div className="bg-white rounded-xl border border-gray-100 p-6 mt-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
+              直近6回の生理記録
+            </h3>
+            <div className="space-y-3">
+              {[
+                { start: "2024/3/15", end: "2024/3/19", cycle: "28日" },
+                { start: "2024/2/16", end: "2024/2/20", cycle: "29日" },
+                { start: "2024/1/18", end: "2024/1/22", cycle: "27日" },
+                { start: "2023/12/21", end: "2023/12/25", cycle: "28日" },
+                { start: "2023/11/23", end: "2023/11/27", cycle: "30日" },
+                { start: "2023/10/24", end: "2023/10/28", cycle: "29日" },
+              ].map((period, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-3 bg-red-50 rounded-lg"
+                >
+                  <div>
+                    <p className="text-sm font-medium text-red-800">
+                      {period.start} - {period.end}
+                    </p>
+                    <p className="text-xs text-red-600">周期: {period.cycle}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -577,7 +606,7 @@ const PeriodCareApp = () => {
             },
             {
               id: "mother",
-              name: "お母さん",
+              name: "お母��ん",
               avatar: "👩",
               bgColor: "from-pink-400 to-pink-500",
               description: "温かく包み込んでくれるお母さん",

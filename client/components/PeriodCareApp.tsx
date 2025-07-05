@@ -721,7 +721,7 @@ const PeriodCareApp = () => {
                 </p>
                 <p className="text-sm text-gray-700 leading-relaxed">
                   {selectedCharacter === "prince" &&
-                    "こんにちは、美しいお姫様…。今日はどんなことで君の心が曇っているのかな？✨💎✨僕が���君の全てを受け止めよう。遠慮はいらないよ✨"}
+                    "こんにちは、美しいお姫様…。今日はどんなことで君の心が曇っているのかな？✨💎✨僕が、君の全てを受け止めよう。遠慮はいらないよ✨"}
                   {selectedCharacter === "mother" &&
                     "お疲れ様、今日の調子はどうでしたか？お母さんにはなんでも話してね。"}
                   {selectedCharacter === "grandmother" &&
@@ -859,15 +859,15 @@ const PeriodCareApp = () => {
         </button>
 
         <button
-          onClick={() => setCurrentScreen("calendar")}
+          onClick={() => setCurrentScreen("settings")}
           className={`flex flex-col items-center space-y-1 p-2 rounded-lg transition-colors ${
-            currentScreen === "calendar"
+            currentScreen === "settings"
               ? "text-sky-500 bg-sky-50"
               : "text-gray-500"
           }`}
         >
-          <Calendar className="w-6 h-6" />
-          <span className="text-xs font-medium">カレンダー</span>
+          <User className="w-6 h-6" />
+          <span className="text-xs font-medium">設定</span>
         </button>
       </div>
     </div>
